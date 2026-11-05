@@ -1,0 +1,34 @@
+name: Build and Release EXE
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+jobs:
+  build:
+    runs-on: windows-latest
+
+    steps:
+    - name: Checkout Código
+      uses: actions/checkout@v4
+
+    - name: Configurar uv
+      uses: astral-sh/setup-uv@v5
+      with:
+        enable-cache: true 
+
+    - name: Configurar Python e Instalar Dependências
+      run: |
+        uv sync --frozen
+
+    - name: Gerar Executável com PyInstaller
+      run: |
+        uv run pyinstaller --onefile --noconsole --add-data "times_brasileiros.csv;." main.py
+
+    - name: Criar GitHub Release e Upload do EXE
+      uses: softprops/action-gh-release@v2
+      with:
+        files: dist/main.exe 
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
