@@ -1,7 +1,5 @@
 # Microsoft Rewards Bot
 
-## Descrição
-
 Bot feito como parte de estudo sobre automação de tarefas. Realiza pesquisas no edge de forma automática para obter prêmios no programa de recompensas da Microsoft. 
 
 ## Tecnologias
