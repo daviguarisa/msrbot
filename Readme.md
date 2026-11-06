@@ -7,8 +7,11 @@ Bot feito como parte de estudo sobre automação de tarefas. Realiza pesquisas n
 ## Tecnologias
 
 **Linguagem**: Python
+
 **Automação**: PyAutoGUI
+
 **Leitura de arquivos**: Pandas
+
 **Gerenciador de Pacotes**: UV
 
 ## Como usar
